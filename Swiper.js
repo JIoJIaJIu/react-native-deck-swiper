@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { PanResponder, Text, View, Dimensions, Animated } from 'react-native'
 import PropTypes from 'prop-types'
 import isEqual from 'lodash/isEqual'
-import ViewOverflow from 'react-native-view-overflow'
 
 import styles from './styles'
 
@@ -692,8 +691,8 @@ class Swiper extends Component {
     })
 
   render = () => {
-    const { pointerEvents, backgroundColor, marginTop, marginBottom, containerStyle, swipeBackCard, useViewOverflow } = this.props
-    const ViewComponent = useViewOverflow ? ViewOverflow : View
+    const { pointerEvents, backgroundColor, marginTop, marginBottom, containerStyle, swipeBackCard } = this.props
+    const ViewComponent = View
     return (
       <ViewComponent
         pointerEvents={pointerEvents}
@@ -912,7 +911,6 @@ Swiper.propTypes = {
   swipeBackCard: PropTypes.bool,
   topCardResetAnimationFriction: PropTypes.number,
   topCardResetAnimationTension: PropTypes.number,
-  useViewOverflow: PropTypes.bool,
   verticalSwipe: PropTypes.bool,
   verticalThreshold: PropTypes.number,
   zoomAnimationDuration: PropTypes.number,
@@ -1007,7 +1005,6 @@ Swiper.defaultProps = {
   swipeBackCard: false,
   topCardResetAnimationFriction: 7,
   topCardResetAnimationTension: 40,
-  useViewOverflow: true,
   verticalSwipe: true,
   verticalThreshold: height / 5,
   zoomAnimationDuration: 100,
